@@ -13,3 +13,17 @@ Uninstall xdebug:
   pkg.removed:
     - name: {{salt['pillar.get']('php:pkg_names:xdebug')}}
 {% endif %}
+
+Download composer:
+  cmd.run:
+    - cwd: /tmp
+    - name: '`which curl` -sS https://getcomposer.org/installer | php'
+    - unless: test -f /usr/local/bin/composer
+
+Install composer:
+  cmd.wait:
+    - name: mv /tmp/composer.phar /usr/local/bin/composer
+    - cwd: /root
+    - unless: test -f /usr/local/bin/composer
+    - watch:
+      - cmd: Download composer
