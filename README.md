@@ -30,6 +30,7 @@ by placing it in `pillar/<hostname>.sls`.
 
 * Common - general settings and packages
 * Apache
+* Nodejs
 * PHP
 
 ## Warning

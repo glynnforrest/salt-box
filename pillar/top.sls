@@ -8,6 +8,7 @@ base:
   '*':
     - defaults.apache
     - defaults.common
+    - defaults.nodejs
     - defaults.php
 
     # host specific configuration
