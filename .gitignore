@@ -1,0 +1,3 @@
+/salt/top.sls
+/pillar/*.sls
+!/pillar/top.sls
