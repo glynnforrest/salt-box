@@ -1,7 +1,6 @@
-# Salt Setup
+# Salt Box
 
-A collection of machine-agnostic salt states for setting up
-development environments.
+Machine-agnostic salt states for setting up development environments.
 
 These states intend to be as general as possible by default. No
 machine-specific data is committed to this repository so it can be
