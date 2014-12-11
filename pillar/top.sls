@@ -6,6 +6,7 @@
 
 base:
   '*':
+    - defaults.apache
     - defaults.common
     - defaults.php
 
