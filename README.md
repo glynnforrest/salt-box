@@ -29,6 +29,8 @@ by placing it in `pillar/<hostname>.sls`.
 ## Included states
 
 * Common - general settings and packages
+* Apache
+* PHP
 
 ## Warning
 
