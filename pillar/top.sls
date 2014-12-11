@@ -7,6 +7,7 @@
 base:
   '*':
     - defaults.common
+    - defaults.php
 
     # host specific configuration
     # replacing '.' with '-' to avoid looking in subdirectories
