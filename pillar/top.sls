@@ -8,6 +8,7 @@ base:
   '*':
     - defaults.apache
     - defaults.common
+    - defaults.emacs
     - defaults.nodejs
     - defaults.php
 
