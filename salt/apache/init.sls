@@ -8,3 +8,13 @@ Install apache:
     - enable: true
     - require:
       - pkg: Install apache
+
+{% if salt['pillar.get']('apache:use_php') %}
+Install apache mod php:
+  pkg.installed:
+    - name: libapache2-mod-php5
+{% else %}
+Uninstall apache mod php:
+  pkg.removed:
+    - name: libapache2-mod-php5
+{% endif %}
