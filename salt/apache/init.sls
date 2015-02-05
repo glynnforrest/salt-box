@@ -18,3 +18,15 @@ Uninstall apache mod php:
   pkg.removed:
     - name: libapache2-mod-php5
 {% endif %}
+
+{% for item in salt['pillar.get']('apache:virtual_hosts') %}
+Set up {{item['host']}}:
+  file:
+    - managed
+    - name: /etc/apache2/sites-available/{{item['host']}}
+    - source: salt://apache/virtual_host.conf.j2
+    - template: jinja
+    - defaults:
+        host: {{item['host']}}
+        docroot: {{item['docroot']}}
+{% endfor %}
