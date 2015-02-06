@@ -20,6 +20,19 @@ Uninstall apache mod php:
 {% endif %}
 
 {% for item in salt['pillar.get']('apache:virtual_hosts') %}
+
+{% if item['symlink'] is defined %}
+Set up {{item['host']}} symlink:
+  file.symlink:
+    - name: /var/www/{{item['host']}}
+    - target: {{item['symlink']}}
+    - force: true
+{% else %}
+Set up {{item['host']}} directory:
+  file.directory:
+    - name: /var/www/{{item['host']}}
+{% endif %}
+
 Set up {{item['host']}}:
   file:
     - managed
@@ -29,4 +42,10 @@ Set up {{item['host']}}:
     - defaults:
         host: {{item['host']}}
         docroot: {{item['docroot']}}
+
+Enable {{item['host']}}:
+  file.symlink:
+    - name: /etc/apache2/sites-enabled/{{item['host']}}
+    - target: /etc/apache2/sites-available/{{item['host']}}
+
 {% endfor %}
