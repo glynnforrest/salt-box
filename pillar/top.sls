@@ -9,6 +9,7 @@ base:
     - defaults.apache
     - defaults.common
     - defaults.emacs
+    - defaults.mysql
     - defaults.nodejs
     - defaults.php
 
