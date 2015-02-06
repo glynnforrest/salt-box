@@ -15,6 +15,7 @@ php:
     - php5-mcrypt
     - php5-mysql
     - php5-xmlrpc
+    - libssh2-php
     {% endif %}
 
   pkg_names:
