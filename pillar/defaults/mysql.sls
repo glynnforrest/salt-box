@@ -3,3 +3,4 @@ mysql:
     server: mysql-server
     client: mysql-client
   service_name: mysql
+  databases: []
