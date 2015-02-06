@@ -8,6 +8,8 @@ Install apache:
     - enable: true
     - require:
       - pkg: Install apache
+  apache_module.enable:
+    - name: rewrite
 
 {% if salt['pillar.get']('apache:use_php') %}
 Install apache mod php:
