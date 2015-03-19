@@ -16,6 +16,8 @@ php:
     - php5-mysql
     - php5-xmlrpc
     - libssh2-php
+    - php5-intl
+    - php5-sqlite
     {% endif %}
 
   pkg_names:
@@ -26,3 +28,5 @@ php:
     {% endif %}
 
   use_xdebug: False
+
+  cli_ini_path: /etc/php5/cli/php.ini

@@ -14,6 +14,15 @@ Uninstall xdebug:
     - name: {{salt['pillar.get']('php:pkg_names:xdebug')}}
 {% endif %}
 
+{% if grains['os'] == 'Debian' %}
+Setup cli php.ini:
+  file:
+    - managed
+    - name: {{salt['pillar.get']('php:cli_ini_path')}}
+    - source: salt://php/php.ini.j2
+    - template: jinja
+{% endif %}
+
 Download composer:
   cmd.run:
     - cwd: /tmp
