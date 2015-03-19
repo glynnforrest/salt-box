@@ -15,6 +15,14 @@ Install apache:
 Install apache mod php:
   pkg.installed:
     - name: libapache2-mod-php5
+
+Setup apache php.ini:
+  file:
+    - managed
+    - name: {{salt['pillar.get']('php:apache_ini_path')}}
+    - source: salt://php/php.ini.j2
+    - template: jinja
+
 {% else %}
 Uninstall apache mod php:
   pkg.removed:
