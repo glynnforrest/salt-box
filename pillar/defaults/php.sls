@@ -29,5 +29,5 @@ php:
 
   use_xdebug: False
 
-  cli_ini_path: /etc/php5/cli/php.ini
-  apache_ini_path: /etc/php5/apache2/php.ini
+  cli_ini_dir: /etc/php5/cli
+  apache_ini_dir: /etc/php5/apache2

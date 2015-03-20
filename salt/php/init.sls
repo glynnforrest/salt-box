@@ -18,9 +18,14 @@ Uninstall xdebug:
 Setup cli php.ini:
   file:
     - managed
-    - name: {{salt['pillar.get']('php:cli_ini_path')}}
+    - name: {{salt['pillar.get']('php:cli_ini_dir')}}/php.ini
     - source: salt://php/php.ini.j2
     - template: jinja
+
+Remove cli php conf.d symlink:
+  file:
+    - absent
+    - name: {{salt['pillar.get']('php:cli_ini_dir')}}/conf.d
 {% endif %}
 
 Download composer:

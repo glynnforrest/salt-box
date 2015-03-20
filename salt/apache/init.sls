@@ -19,9 +19,14 @@ Install apache mod php:
 Setup apache php.ini:
   file:
     - managed
-    - name: {{salt['pillar.get']('php:apache_ini_path')}}
+    - name: {{salt['pillar.get']('php:apache_ini_dir')}}/php.ini
     - source: salt://php/php.ini.j2
     - template: jinja
+
+Remove apache php conf.d symlink:
+  file:
+    - absent
+    - name: {{salt['pillar.get']('php:apache_ini_dir')}}/conf.d
 
 {% else %}
 Uninstall apache mod php:
