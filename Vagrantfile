@@ -19,5 +19,6 @@ Vagrant.configure(2) do |config|
     salt.run_highstate = false
     salt.masterless = true
     salt.bootstrap_options = '-c /tmp'
+    salt.minion_config = "conf/minion_vagrant"
   end
 end
