@@ -1,7 +1,0 @@
-file_client: local
-file_roots:
-  base:
-    - _ROOT_/salt
-pillar_roots:
-  base:
-    - _ROOT_/pillar
