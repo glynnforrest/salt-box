@@ -50,7 +50,7 @@ file_roots:
     - $SALTBOXDIR/salt
 pillar_roots:
   base:
-    - $SALTBOXDIR/salt
+    - $SALTBOXDIR/pillar
 EOF
 
     sudo mv _salt_minion /etc/salt/minion
