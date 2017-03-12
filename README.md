@@ -7,15 +7,12 @@ machine-specific data is committed to this repository so it can be
 safely used anywhere. Create `pillar/<hostname>.sls` files to add
 specific configuration for different machines.
 
-## Usage
+## Suggested usage
 
-These states are designed to be run without a master using
-`salt-call`.
+Here are some steps for a fresh install:
 
-* Install salt using your package manager.
-* Create `/etc/salt/minion`, pointing to the `salt` and `pillar` directories.
-* Create `salt/top.sls` (take a look at `salt/example_top.sls`).
-* Create `pillar/<hostname>.sls` for each machine.
+* Run the bootstrap script for your OS to install saltstack and clone this repo, e.g. `curl https://raw.githubusercontent.com/glynnforrest/salt-box/master/bin/install_mac.sh`
+* Create `salt/top.sls`. Ideally, this would come from a private git repository somewhere (remember to get any required ssh keys), which you then symlink to.
 * Run everything with `sudo salt-call state.highstate`.
 
 Look in `pillar/defaults` for available settings. Override a setting
