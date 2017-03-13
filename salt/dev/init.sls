@@ -22,6 +22,10 @@ dev_htop:
     - name: htop
   {% endif %}
 
+dev_fasd:
+  pkg.installed:
+    - name: fasd
+
 {% if grains['os'] == 'MacOS' %}
 dev_iterm2:
   cmd.run:
