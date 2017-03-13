@@ -27,11 +27,21 @@ For a fresh install:
 
 ### dev
 
-Install some dev packages and optionally clone a dotfiles repo
+Install some dev packages and optionally clone a dotfiles repo.
+
+Also install iTerm2 on MacOS.
 
 ### mac
 
-Setup some sensible defaults for MacOS
+Setup some sensible defaults for MacOS.
+
+### browsers
+
+Common web browsers.
+
+### emacs
+
+Grab emacs and checkout a config.
 
 ## Warning
 
