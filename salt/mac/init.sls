@@ -29,3 +29,9 @@ mac_24hr_standby:
 mac_no_boot_sound:
   cmd.run:
     - name: 'nvram SystemAudioVolume=" "'
+
+mac_spectacle:
+  cmd.run:
+    - name: 'brew cask install spectacle'
+    - unless: 'test -d /Applications/Spectacle'
+    - runas: {{user}}
