@@ -33,5 +33,5 @@ mac_no_boot_sound:
 mac_spectacle:
   cmd.run:
     - name: 'brew cask install spectacle'
-    - unless: 'test -d /Applications/Spectacle'
+    - unless: 'test -d /Applications/Spectacle.app'
     - runas: {{user}}
