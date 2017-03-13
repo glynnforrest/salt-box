@@ -50,6 +50,10 @@ Tools for interacting with networks.
 * wget
 * ran - standalone miniature http server
 
+### office
+
+Office programs (LibreOffice).
+
 ## Warning
 
 These state files are designed for a development environment. The
