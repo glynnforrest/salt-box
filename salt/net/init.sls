@@ -22,3 +22,10 @@ ran_http_server:
         - mode: 0755
         - require:
             - archive: ran_http_server
+
+http_status_helper:
+    file.managed:
+        - name: /usr/local/bin/http
+        - source: 'https://raw.githubusercontent.com/gazayas/http/9e57fc9ef3c4b476fd8296e25918e6dce69fd94f/http'
+        - source_hash: '07de12b4f69d612c7a529c529a86f747fa22a22b'
+        - mode: 0755
