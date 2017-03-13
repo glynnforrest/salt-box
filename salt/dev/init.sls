@@ -44,6 +44,7 @@ dev_dotfiles:
         - name: {{repo}}
         - user: {{user}}
         - target: {{target}}
+        - unless: 'test -d {{target}}'
 {%- if install %}
     cmd.run:
         - name: {{install}}
