@@ -1,4 +1,10 @@
 {% set user = pillar['user'] %}
+{% set shell = salt['pillar.get']('dev:shell', '/bin/bash') %}
+
+dev_set_shell:
+  user.present:
+    - name: {{user}}
+    - shell: {{shell}}
 
 dev_tmux:
   pkg.installed:
