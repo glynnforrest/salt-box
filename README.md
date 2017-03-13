@@ -43,6 +43,13 @@ Common web browsers.
 
 Grab emacs and checkout a config.
 
+### net
+
+Tools for interacting with networks.
+
+* wget
+* ran - standalone miniature http server
+
 ## Warning
 
 These state files are designed for a development environment. The
