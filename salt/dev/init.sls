@@ -1,3 +1,5 @@
+{% set user = pillar['user'] %}
+
 dev_tmux:
   pkg.installed:
     - name: tmux
@@ -13,3 +15,23 @@ dev_htop:
   {% else %}
     - name: htop
   {% endif %}
+
+{%- if salt['pillar.get']('dev:dotfiles') %}
+{% set repo = pillar['dev']['dotfiles']['repo'] %}
+{% set target = pillar['dev']['dotfiles']['target'] %}
+{% set install = salt['pillar.get']('dev:dotfiles:install') %}
+
+dev_dotfiles:
+    git.latest:
+        - name: {{repo}}
+        - user: {{user}}
+        - target: {{target}}
+{%- if install %}
+    cmd.run:
+        - name: {{install}}
+        - runas: {{user}}
+        - cwd: {{target}}
+        - require:
+            - git: dev_dotfiles
+{%- endif %}
+{%- endif %}
