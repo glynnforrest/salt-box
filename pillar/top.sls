@@ -1,7 +1,5 @@
 base:
   '*':
-    - defaults.apache
-    - defaults.mysql
     - defaults.nodejs
     - defaults.php
 
