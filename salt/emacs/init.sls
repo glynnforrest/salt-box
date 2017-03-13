@@ -17,4 +17,5 @@ emacs_config:
     - rev: master
     - target: {{repo_target}}
     - user: {{user}}
+    - unless: 'test -d {{repo_target}}'
 {% endif %}
