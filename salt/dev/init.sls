@@ -26,6 +26,10 @@ dev_fasd:
   pkg.installed:
     - name: fasd
 
+dev_stow:
+  pkg.installed:
+    - name: stow
+
 {% if grains['os'] == 'MacOS' %}
 dev_iterm2:
   cmd.run:
