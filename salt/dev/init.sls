@@ -6,13 +6,14 @@ dev_set_shell:
     - name: {{user}}
     - shell: {{shell}}
 
-dev_tmux:
+dev_pkgs:
   pkg.installed:
-    - name: tmux
-
-dev_tig:
-  pkg.installed:
-    - name: tig
+    - names:
+      - tmux
+      - tig
+      - fasd
+      - stow
+      - watch
 
 dev_htop:
   pkg.installed:
@@ -22,13 +23,6 @@ dev_htop:
     - name: htop
   {% endif %}
 
-dev_fasd:
-  pkg.installed:
-    - name: fasd
-
-dev_stow:
-  pkg.installed:
-    - name: stow
 
 {% if grains['os'] == 'MacOS' %}
 dev_iterm2:
