@@ -19,3 +19,7 @@ emacs_config:
     - user: {{user}}
     - unless: 'test -d {{repo_target}}'
 {% endif %}
+
+emacs_ispell:
+  pkg.installed:
+    - name: ispell
