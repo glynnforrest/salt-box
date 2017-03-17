@@ -2,7 +2,7 @@
 
 mac_fast_keys:
   cmd.run:
-    - name: "defaults write NSGlobalDomain KeyRepeat -int 2 && defaults write NSGlobalDomain InitialKeyRepeat -int 10"
+    - name: "defaults write NSGlobalDomain KeyRepeat -int 2 && defaults write NSGlobalDomain InitialKeyRepeat -int 15"
     - runas: {{user}}
 
 # for user and login screen
