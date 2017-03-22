@@ -14,6 +14,7 @@ dev_pkgs:
       - fasd
       - stow
       - watch
+      - ripgrep
 
 dev_htop:
   pkg.installed:
