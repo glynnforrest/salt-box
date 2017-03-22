@@ -17,3 +17,7 @@ python_sphinx_autobuild:
 python_pygments:
   pip.installed:
     - name: pygments
+
+python_proselint:
+  pip.installed:
+    - name: proselint
