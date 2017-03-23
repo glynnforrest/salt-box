@@ -15,6 +15,7 @@ dev_pkgs:
       - stow
       - watch
       - ripgrep
+      - md5sha1sum
 
 dev_htop:
   pkg.installed:
