@@ -15,3 +15,11 @@ media_mpc:
 media_ncmpcpp:
   pkg.installed:
     - name: ncmpcpp
+
+media_youttube_dl:
+  pkg.installed:
+    - name: youtube-dl
+
+media_ffmpeg:
+  pkg.installed:
+    - name: ffmpeg
