@@ -20,3 +20,9 @@ php_cs_fixer:
     - source: 'https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.1.2/php-cs-fixer.phar'
     - source_hash: 'e42188019768b35067c11ef5ba653a41df5072ea'
     - mode: 0755
+
+php_psysh:
+  cmd.run:
+    - name: 'brew install homebrew/php/psysh'
+    - runas: {{user}}
+    - unless:  'brew list --full-name | grep homebrew/php/psysh'
