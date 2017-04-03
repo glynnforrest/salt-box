@@ -8,6 +8,12 @@ php_install:
     - runas: {{user}}
     - unless:  'brew list --full-name | grep homebrew/php/php71'
 
+php_ssh2:
+  cmd.run:
+    - name: 'brew install homebrew/php/php71-ssh2'
+    - runas: {{user}}
+    - unless:  'brew list --full-name | grep homebrew/php/php71-ssh2'
+
 php_composer:
   cmd.run:
     - name: 'brew install homebrew/php/composer'
