@@ -12,9 +12,9 @@ media_mpc:
   pkg.installed:
     - name: mpc
 
-media_ncmpcpp:
+media_vimpc:
   pkg.installed:
-    - name: ncmpcpp
+    - name: vimpc
 
 media_youttube_dl:
   pkg.installed:
