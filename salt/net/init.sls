@@ -1,5 +1,6 @@
-wget:
-    pkg.installed
+net_wget:
+    pkg.installed:
+        - name: wget
 
 {% if grains['os'] == 'MacOS' %}
 {% set ran_bin = 'ran_darwin_amd64' %}
@@ -10,22 +11,28 @@ wget:
 {% endif %}
 
 {% set ran_src = 'https://github.com/m3ng9i/ran/releases/download/v0.1.3/' ~ ran_bin ~ '.zip' %}
-ran_http_server:
+net_ran_http_server:
     archive.extracted:
         - name: /tmp/ran-http
         - enforce_toplevel: False
         - source: {{ran_src}}
         - source_hash: {{ran_sha}}
+        - unless: which ran
     file.managed:
         - name: /usr/local/bin/ran
         - source: /tmp/ran-http/{{ran_bin}}
         - mode: 0755
+        - unless: which ran
         - require:
-            - archive: ran_http_server
+            - archive: net_ran_http_server
 
-http_status_helper:
+net_http_status_helper:
     file.managed:
         - name: /usr/local/bin/http
         - source: 'https://raw.githubusercontent.com/gazayas/http/9e57fc9ef3c4b476fd8296e25918e6dce69fd94f/http'
         - source_hash: '07de12b4f69d612c7a529c529a86f747fa22a22b'
         - mode: 0755
+
+net_nmap:
+    pkg.installed:
+        - name: nmap
