@@ -16,10 +16,14 @@ media_vimpc:
   pkg.installed:
     - name: vimpc
 
-media_youttube_dl:
+media_youtube_dl:
   pkg.installed:
     - name: youtube-dl
 
 media_ffmpeg:
   pkg.installed:
     - name: ffmpeg
+
+media_imagemagick:
+  pkg.installed:
+    - name: imagemagick
