@@ -1,3 +1,5 @@
+{% set user = pillar['user'] %}
+
 net_wget:
     pkg.installed:
         - name: wget
@@ -36,3 +38,9 @@ net_http_status_helper:
 net_nmap:
     pkg.installed:
         - name: nmap
+
+net_transmission:
+    cmd.run:
+        - name: 'brew cask install transmission'
+        - unless: 'test -d /Applications/Transmission.app'
+        - runas: {{user}}
