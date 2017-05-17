@@ -21,3 +21,7 @@ python_pygments:
 python_proselint:
   pip.installed:
     - name: proselint
+
+python_git_sweep:
+  pip.installed:
+    - name: git-sweep
