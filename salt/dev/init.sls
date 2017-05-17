@@ -17,6 +17,7 @@ dev_pkgs:
       - ripgrep
       - md5sha1sum
       - tree
+      - fswatch
 
 dev_htop:
   pkg.installed:

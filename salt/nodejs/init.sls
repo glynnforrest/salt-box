@@ -7,3 +7,7 @@ nodejs_{{pkg}}:
   npm.installed:
     - name: {{pkg}}
 {% endfor %}
+
+nodejs_phantomjs:
+    pkg.installed:
+        - name: phantomjs
