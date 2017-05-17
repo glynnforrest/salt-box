@@ -48,6 +48,7 @@ log_level: info
 file_roots:
   base:
     - $SALTBOXDIR/salt
+state_output: changes
 pillar_roots:
   base:
     - $SALTBOXDIR/pillar
