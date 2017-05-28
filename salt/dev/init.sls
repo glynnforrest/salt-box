@@ -18,6 +18,7 @@ dev_pkgs:
       - md5sha1sum
       - tree
       - fswatch
+      - hugo
 
 dev_htop:
   pkg.installed:
