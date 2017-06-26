@@ -19,6 +19,8 @@ dev_pkgs:
       - tree
       - fswatch
       - hugo
+      - jq
+      - markdown
 
 dev_htop:
   pkg.installed:
@@ -57,3 +59,8 @@ dev_dotfiles:
             - git: dev_dotfiles
 {%- endif %}
 {%- endif %}
+
+dev_cask:
+  cmd.run:
+    - name: curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+    - unless: which cask
