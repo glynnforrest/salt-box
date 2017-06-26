@@ -7,6 +7,9 @@ php_install:
     - name: 'brew install homebrew/php/php71'
     - runas: {{user}}
     - unless:  'brew list --full-name | grep homebrew/php/php71'
+  file.managed:
+    - name: '/usr/local/etc/php/7.1/php.ini'
+    - source: salt://php/php_mac.ini
 
 php_ssh2:
   cmd.run:
