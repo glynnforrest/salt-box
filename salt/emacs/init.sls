@@ -23,3 +23,9 @@ emacs_config:
 emacs_ispell:
   pkg.installed:
     - name: ispell
+
+emacs_cask:
+  cmd.run:
+    - name: curl -fsSL https://raw.githubusercontent.com/cask/cask/master/go | python
+    - unless: 'test -d /Users/{{user}}/.cask'
+    - runas: {{user}}
