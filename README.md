@@ -1,22 +1,34 @@
 # Salt Box
 
-SaltStack states for setting up your computer.
+SaltStack states to your development machines, in the style of Github's boxen.
 
-Two files are required:
+You need to provide your own top and pillar files:
 
 * `salt/top.sls` to tell salt what states you want
-* `pillar/config.sls` to configure them
+* `pillar/top.sls` to define pillar data, plus any files that
 
-Ideally, these files would come from a private git repository
-somewhere, which you then symlink to.
+These files aren't included in this repo, since they could contain private data.
+
+Ideally, they would come from a private git repository which you could
+symlink to.
+
+Have a look at `salt/example_top.sls` and `pillar/example_top.sls` for
+more information.
 
 ## Usage
 
-For a fresh install:
+### Initial setup
 
-* Run the bootstrap script for your OS to install saltstack and clone this repo, e.g. `curl https://raw.githubusercontent.com/glynnforrest/salt-box/master/bin/install_mac.sh`
-* Add `salt/top.sls` and `pillar/config.sls` to this repo.
-* Run everything with `sudo salt-call state.highstate`.
+* Install git and clone this repository
+* Run `./bin/install` to install and configure Salt
+* Add `salt/top.sls`, `pillar/top.sls`, and any required pillar files to this repo
+* Provision everything with `sudo salt-call state.highstate`
+
+### Updating
+
+* `git pull`
+* Adjust your top files as needed
+* `sudo salt-call state.highstate`
 
 ## Supported platforms
 
