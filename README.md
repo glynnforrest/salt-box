@@ -4,8 +4,9 @@ SaltStack states to your development machines, in the style of Github's boxen.
 
 You need to provide your own top and pillar files:
 
-* `salt/top.sls` to tell salt what states you want
-* `pillar/top.sls` to define pillar data, plus any files that
+* `salt/top.sls` to assign states to your different machines
+* `pillar/top.sls` to assign pillar data
+* any files declared in `pillar/top.sls`
 
 These files aren't included in this repo, since they could contain private data.
 
