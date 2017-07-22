@@ -1,3 +1,4 @@
 /salt/top.sls
-/pillar/config.sls
+/pillar/*
+!/pillar/example_top.sls
 .vagrant
