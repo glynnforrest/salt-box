@@ -6,10 +6,10 @@ from distutils.spawn import find_executable
 from subprocess import call
 
 def create_minion_config():
-    print "Create a salt-minion config pointing to the salt-box repo? (y/n): "
+    print("Create a salt-minion config pointing to the salt-box repo? (y/n): ")
     choice = raw_input()
     if choice.lower() == 'y':
-        print "Creating /etc/salt/minion pointing to salt-box directory..."
+        print("Creating /etc/salt/minion pointing to salt-box directory...")
         call('sudo mkdir -p /etc/salt', shell=True)
         template = """
 file_client: local
@@ -27,35 +27,41 @@ pillar_roots:
 
         call('sudo mv _minion /etc/salt/minion', shell=True)
     else:
-        print "Skipping minion config."
+        print("Skipping minion config.")
 
 def check_and_finish():
-    print "Running 'salt-call test.ping' to check salt is working..."
+    print("Running 'salt-call test.ping' to check salt is working...")
     call('sudo salt-call test.ping', shell=True)
-    print "Now add your top files, then run highstate!"
+    print("Now add your top files, then run highstate!")
 
 def install_mac():
     if find_executable('brew'):
-        print "Homebrew already installed."
+        print("Homebrew already installed.")
     else:
-        print "Homebrew not found, installing..."
+        print("Homebrew not found, installing...")
         call('ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"', shell=True)
 
     if find_executable('salt-call'):
-        print "Salt already installed."
+        print("Salt already installed.")
     else:
-        print "Salt not found, installing..."
+        print("Salt not found, installing...")
         call('brew update && brew install saltstack', shell=True)
 
     create_minion_config()
     check_and_finish()
 
 def install_linux():
-    return
+    if not find_executable('curl'):
+        print("Curl not found, installing...")
+        call('sudo apt-get install curl', shell=True)
 
-if platform == 'linux':
+    call('curl -L https://bootstrap.saltstack.com | sudo bash', shell=True)
+    create_minion_config()
+    check_and_finish()
+
+if platform == 'linux' or platform == 'linux2':
     install_linux()
 elif platform == 'darwin':
     install_mac()
 else:
-    print '{} platform not supported.'.format(platform)
+    print('{} platform not supported.'.format(platform))
