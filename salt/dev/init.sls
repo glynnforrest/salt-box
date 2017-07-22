@@ -12,6 +12,7 @@ dev_pkgs:
       - tmux
       - tig
       - fasd
+      - figlet
       - stow
       - watch
       - ripgrep
@@ -59,3 +60,9 @@ dev_dotfiles:
             - git: dev_dotfiles
 {%- endif %}
 {%- endif %}
+
+dev_licecap:
+  cmd.run:
+    - name: 'brew cask install licecap'
+    - unless: 'test -d /Applications/LICEcap.app'
+    - runas: {{user}}
