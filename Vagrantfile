@@ -1,24 +1,18 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "debian/jessie64"
+  # sync of this folder is disabled to prevent problems with top file symlinks
+  # these vms aren't provisioned automatically, think of them as
+  # ready-made blank machines
+  config.vm.synced_folder '.', '/vagrant', disabled: true
 
-  config.vm.hostname = 'salt-box'
+  config.vm.define "debian" do |m|
+    m.vm.box = "debian/jessie64"
+    m.vm.hostname = 'salt-box-debian'
+    m.vm.network "private_network", ip: "192.168.10.2"
 
-  config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--memory", "1024"]
-    vb.customize ["modifyvm", :id, "--name", "salt-box"]
-    vb.gui = true
-  end
-
-  config.vm.network :private_network, ip: "192.168.10.2"
-
-  config.vm.provision :salt do |salt|
-    salt.install_type = "stable"
-    salt.install_master = false
-    salt.verbose = true
-    salt.colorize = true
-    salt.run_highstate = false
-    salt.masterless = true
-    salt.bootstrap_options = '-c /tmp'
-    salt.minion_config = "conf/minion_vagrant"
+    config.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--memory", "1536"]
+      vb.customize ["modifyvm", :id, "--name", "salt-box-debian"]
+      vb.gui = true
+    end
   end
 end
