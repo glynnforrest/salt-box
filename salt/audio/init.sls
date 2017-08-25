@@ -7,6 +7,6 @@
 soundflower:
   cmd.run:
     - name: 'brew cask install soundflower'
-    - unless: 'test -d /Applications/Soundflower.app'
+    - unless: 'test -d /Library/Extensions/Soundflower.kext'
     - runas: {{user}}
 {% endif %}
