@@ -13,6 +13,7 @@ dev_pkgs:
       - tig
       - fasd
       - figlet
+      - fzf
       - stow
       - watch
       - ripgrep
@@ -22,15 +23,7 @@ dev_pkgs:
       - hugo
       - jq
       - markdown
-
-dev_htop:
-  pkg.installed:
-  {% if grains['os'] == 'MacOS' %}
-    - name: htop-osx
-  {% else %}
-    - name: htop
-  {% endif %}
-
+      - htop
 
 {% if grains['os'] == 'MacOS' %}
 dev_iterm2:
