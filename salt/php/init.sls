@@ -11,11 +11,13 @@ php_install:
     - name: '/usr/local/etc/php/7.1/php.ini'
     - source: salt://php/php_mac.ini
 
-php_ssh2:
+{% for pkg in ['ssh2', 'intl'] %}
+php_{{pkg}}:
   cmd.run:
-    - name: 'brew install homebrew/php/php71-ssh2'
+    - name: 'brew install homebrew/php/php71-{{pkg}}'
     - runas: {{user}}
-    - unless:  'brew list --full-name | grep homebrew/php/php71-ssh2'
+    - unless:  'brew list --full-name | grep homebrew/php/php71-{{pkg}}'
+{% endfor %}
 
 php_composer:
   cmd.run:
