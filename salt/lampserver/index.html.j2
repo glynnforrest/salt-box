@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Available sites</title>
+  </head>
+  <body>
+    <table>
+      {% for site in sites %}
+        <tr>
+          <td>
+            <a href="//{{site.host}}">
+              {{site.host}}
+            </a>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </body>
+</html>

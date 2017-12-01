@@ -1,0 +1,11 @@
+{%- set docroot = '/var/www/'~site.name~'/'~site.docroot %}
+<VirtualHost *:80>
+    ServerName {{site.host}}
+    DocumentRoot {{docroot}}
+
+    <Directory "{{docroot}}">
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
