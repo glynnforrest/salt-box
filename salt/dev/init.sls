@@ -24,7 +24,6 @@ dev_pkgs:
       - stow
       - watch
       - tree
-      - hugo
       - jq
       - markdown
       - htop

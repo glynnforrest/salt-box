@@ -8,6 +8,7 @@ dev_mac_pkgs:
       - fswatch
       - ripgrep
       - fasd
+      - hugo
 
 dev_iterm2:
   cmd.run:
