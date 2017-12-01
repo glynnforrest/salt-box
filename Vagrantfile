@@ -4,15 +4,15 @@ Vagrant.configure(2) do |config|
   # ready-made blank machines
   config.vm.synced_folder '.', '/vagrant', disabled: true
 
-  config.vm.define "debian" do |m|
+  config.vm.define "lamp" do |m|
     m.vm.box = "debian/jessie64"
-    m.vm.hostname = 'salt-box-debian'
+    m.vm.hostname = 'lamp'
     m.vm.network "private_network", ip: "192.168.10.2"
 
     config.vm.provider :virtualbox do |vb|
-      vb.customize ["modifyvm", :id, "--memory", "1536"]
-      vb.customize ["modifyvm", :id, "--name", "salt-box-debian"]
-      vb.gui = true
+      # lots of memory for composer updates
+      vb.customize ["modifyvm", :id, "--memory", "3072"]
+      vb.customize ["modifyvm", :id, "--name", "lamp"]
     end
   end
 end
