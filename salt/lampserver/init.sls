@@ -50,6 +50,16 @@ apache_default_index:
 php:
   pkg.latest:
     - names:
+{%- if grains['osmajorrelease'] == 8 %}
+      - libapache2-mod-php5
+      - php5-ssh2
+      - php5-ssh2
+      - php5
+      - php5-curl
+      - php5-gd
+      - php5-intl
+      - php5-mysql
+{%- else %}
       - libapache2-mod-php7.0
       - php-ssh2
       - php7.0
@@ -60,6 +70,7 @@ php:
       - php7.0-sqlite3
       - php7.0-xml
       - php7.0-zip
+{%- endif %}
 
 download_composer:
   cmd.run:
