@@ -52,13 +52,13 @@ php:
     - names:
 {%- if grains['osmajorrelease'] == 8 %}
       - libapache2-mod-php5
-      - php5-ssh2
-      - php5-ssh2
       - php5
       - php5-curl
       - php5-gd
       - php5-intl
       - php5-mysql
+      - php5-sqlite
+      - php5-ssh2
 {%- else %}
       - libapache2-mod-php7.0
       - php-ssh2
