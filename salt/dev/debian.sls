@@ -4,6 +4,7 @@ dev_debian_pkgs:
       - apt-transport-https
       - zsh
       - vim
+      - g++
 
 dev_debian_rg:
   archive.extracted:
