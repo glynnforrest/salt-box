@@ -7,8 +7,10 @@ include:
   - nodejs.debian
 {% endif %}
 
-{% for pkg in ['yarn', 'gulp', 'ember-cli', 'vue-cli'] %}
-nodejs_{{pkg}}:
+nodejs_global_pkgs:
   npm.installed:
-    - name: {{pkg}}
-{% endfor %}
+    - pkgs:
+      - yarn
+      - ember-cli
+      - vue-cli
+      - vue-language-server
