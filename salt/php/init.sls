@@ -1,29 +1,12 @@
-# can't use pkg.installed for these, it fails with slash namespaced pkgs
-# https://github.com/saltstack/salt/issues/26407
-{% set user = pillar['user'] %}
+{%- if grains['os'] == 'MacOS' %}
+include:
+  - php.mac
+{%- endif %}
 
-php_install:
-  cmd.run:
-    - name: 'brew install homebrew/php/php71'
-    - runas: {{user}}
-    - unless:  'brew list --full-name | grep homebrew/php/php71'
-  file.managed:
-    - name: '/usr/local/etc/php/7.1/php.ini'
-    - source: salt://php/php_mac.ini
-
-{% for pkg in ['ssh2', 'intl'] %}
-php_{{pkg}}:
-  cmd.run:
-    - name: 'brew install homebrew/php/php71-{{pkg}}'
-    - runas: {{user}}
-    - unless:  'brew list --full-name | grep homebrew/php/php71-{{pkg}}'
-{% endfor %}
-
-php_composer:
-  cmd.run:
-    - name: 'brew install homebrew/php/composer'
-    - runas: {{user}}
-    - unless:  'brew list --full-name | grep homebrew/php/composer'
+{%- if grains['os'] == 'Debian' %}
+include:
+  - php.debian
+{%- endif %}
 
 php_cs_fixer:
   file.managed:
@@ -31,12 +14,6 @@ php_cs_fixer:
     - source: 'https://github.com/FriendsOfPHP/PHP-CS-Fixer/releases/download/v2.1.2/php-cs-fixer.phar'
     - source_hash: 'e42188019768b35067c11ef5ba653a41df5072ea'
     - mode: 0755
-
-php_psysh:
-  cmd.run:
-    - name: 'brew install homebrew/php/psysh'
-    - runas: {{user}}
-    - unless:  'brew list --full-name | grep homebrew/php/psysh'
 
 php_symfony_installer:
   # archive.extracted is busted in salt 2016.11.3, see https://github.com/saltstack/salt/issues/39751
