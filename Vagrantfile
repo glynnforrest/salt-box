@@ -9,6 +9,8 @@ Vagrant.configure(2) do |config|
     m.vm.hostname = 'lamp'
     m.vm.network "private_network", ip: "192.168.10.2"
 
+    m.vm.synced_folder "~/notes", "/home/vagrant/notes"
+
     config.vm.provider :virtualbox do |vb|
       # lots of memory for composer updates
       vb.customize ["modifyvm", :id, "--memory", "3072"]
