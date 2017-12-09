@@ -13,3 +13,9 @@ vagrant_virtualbox:
     - unless: 'which VirtualBox'
     - runas: {{user}}
 {% endif %}
+
+vagrant_vbguest:
+  cmd.run:
+    - name: 'vagrant plugin install vagrant-vbguest'
+    - unless: 'vagrant plugin list | grep vagrant-vbguest'
+    - runas: {{user}}
