@@ -102,12 +102,19 @@ mysql_root_password:
     mysql_user.present:
         - name: root
         - password: root
+        - connection_password: ""
     file.managed:
         - name: /root/.my.cnf
         - source: salt://lampserver/root_my.cnf
         - user: root
         - group: root
         - mode: 0600
+
+hosts_file:
+  file.managed:
+    - name: /etc/hosts
+    - source: salt://lampserver/hosts.j2
+    - template: jinja
 
 {% for site in sites %}
 apache_site_{{site.name}}:

@@ -1,0 +1,11 @@
+127.0.0.1	lamp	lamp
+127.0.0.1	localhost
+127.0.1.1	jessie.raw	jessie
+
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+
+{% for site in salt['pillar.get']('lampserver:sites', []) %}
+127.0.0.1 {{site.host}}
+{%- endfor %}
