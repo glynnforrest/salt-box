@@ -6,6 +6,12 @@ media_vlc:
     - name: 'brew cask install vlc'
     - unless: 'test -d /Applications/VLC.app'
     - runas: {{user}}
+
+media_spotify:
+  cmd.run:
+    - name: 'brew cask install spotify'
+    - unless: 'test -d /Applications/Spotify.app'
+    - runas: {{user}}
 {% endif %}
 
 media_mpc:
