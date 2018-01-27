@@ -9,6 +9,7 @@ dev_mac_pkgs:
       - ripgrep
       - fasd
       - hugo
+      - tcptunnel
 
 dev_iterm2:
   cmd.run:

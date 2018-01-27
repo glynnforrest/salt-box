@@ -39,8 +39,16 @@ net_nmap:
     pkg.installed:
         - name: nmap
 
+{%- if True %}
 net_transmission:
-    cmd.run:
-        - name: 'brew cask install transmission'
-        - unless: 'test -d /Applications/Transmission.app'
-        - runas: {{user}}
+  cmd.run:
+    - name: 'brew cask install transmission'
+    - unless: 'test -d /Applications/Transmission.app'
+    - runas: {{user}}
+
+net_filezilla:
+  cmd.run:
+    - name: 'brew cask install filezilla'
+    - unless: 'test -d /Applications/FileZilla.app'
+    - runas: {{user}}
+{%- endif %}

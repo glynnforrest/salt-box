@@ -17,4 +17,10 @@ chat_slack:
     - name: 'brew cask install slack'
     - unless: 'test -d /Applications/Slack.app'
     - runas: {{user}}
+
+chat_skype:
+  cmd.run:
+    - name: 'brew cask install skype'
+    - unless: 'test -d /Applications/Skype.app'
+    - runas: {{user}}
 {%- endif %}
