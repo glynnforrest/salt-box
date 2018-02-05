@@ -27,6 +27,7 @@ dev_pkgs:
       - jq
       - markdown
       - htop
+      - terraform
 
 {%- if salt['pillar.get']('dev:dotfiles') %}
 {% set repo = pillar['dev']['dotfiles']['repo'] %}
