@@ -1,9 +1,15 @@
 python:
   pkg.installed:
-    - name: python
+    - pkgs:
+      - python
+{%- if grains['os'] == 'Debian' %}
+      - python-pip
+{%- endif %}
 
 python_pip_pkgs:
   pip.installed:
+    - require:
+      - pkg: python
     - pkgs:
       - git-sweep
       - proselint

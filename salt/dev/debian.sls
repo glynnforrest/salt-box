@@ -5,6 +5,7 @@ dev_debian_pkgs:
       - zsh
       - vim
       - g++
+      - imagemagick
 
 dev_debian_rg:
   archive.extracted:
