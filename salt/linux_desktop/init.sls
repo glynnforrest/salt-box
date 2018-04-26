@@ -4,4 +4,9 @@ ld_wifi_driver:
   pkg.installed:
     - name: firmware-iwlwifi
 
-
+ld_fonts:
+  pkg.installed:
+    - names:
+        - fonts-inconsolata
+        - fonts-roboto
+        - ttf-mscorefonts-installer

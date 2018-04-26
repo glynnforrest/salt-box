@@ -12,4 +12,8 @@ browsers_firefox:
     - name: 'brew cask install firefox'
     - unless: 'test -d /Applications/Firefox.app'
     - runas: {{user}}
+{% else %}
+browsers_chromium:
+  pkg.installed:
+    - name: chromium
 {% endif %}
