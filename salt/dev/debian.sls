@@ -21,3 +21,20 @@ dev_debian_rg:
     - unless: 'which rg'
     - require:
       - archive: dev_debian_rg
+
+{% set global_src = 'https://ftp.gnu.org/pub/gnu/global/global-6.6.tar.gz' %}
+{% set global_hash = '0965b4800686641a28f7b16bb733aa3345316dde' %}
+dev_debian_global:
+  pkg.installed:
+    - names:
+      - exuberant-ctags
+      - libncurses5-dev
+  archive.extracted:
+    - name: /tmp/global
+    - source: {{global_src}}
+    - source_hash: {{global_hash}}
+    - unless: which global
+  cmd.run:
+    - name: './configure --with-exuberant-ctags=/usr/bin/ctags-exuberant && make && make install'
+    - cwd: '/tmp/global/global-6.6'
+    - unless: which global

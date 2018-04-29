@@ -10,6 +10,7 @@ dev_mac_pkgs:
       - fasd
       - hugo
       - tcptunnel
+      - terraform
 
 dev_iterm2:
   cmd.run:
