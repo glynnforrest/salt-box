@@ -38,3 +38,31 @@ dev_debian_global:
     - name: './configure --with-exuberant-ctags=/usr/bin/ctags-exuberant && make && make install'
     - cwd: '/tmp/global/global-6.6'
     - unless: which global
+
+dev_debian_fzf:
+  archive.extracted:
+    - name: /tmp/fzf
+    - source: https://github.com/junegunn/fzf-bin/releases/download/0.17.3/fzf-0.17.3-linux_amd64.tgz
+    - source_hash: '36a0cea94d2571729b0117ad51e3df8b99b8b86a'
+    - enforce_toplevel: False
+    - unless: which fzf
+  file.managed:
+    - name: /usr/local/bin/fzf
+    - source: /tmp/fzf/fzf
+    - mode: 0755
+    - unless: which fzf
+    - require:
+      - archive: dev_debian_fzf
+
+dev_debian_fasd:
+  git.latest:
+    - name: https://github.com/clvv/fasd.git
+    - rev: master
+    - target: /tmp/fasd
+    - unless: which fasd
+  cmd.run:
+    - name: 'make install'
+    - cwd: /tmp/fasd
+    - unless: which fasd
+    - require:
+      - git: dev_debian_fasd
