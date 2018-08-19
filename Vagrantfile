@@ -13,7 +13,7 @@ Vagrant.configure(2) do |config|
 
     config.vm.provider :virtualbox do |vb|
       # lots of memory for composer updates
-      vb.customize ["modifyvm", :id, "--memory", "3072"]
+      vb.customize ["modifyvm", :id, "--memory", "4096"]
       vb.customize ["modifyvm", :id, "--name", "lamp"]
     end
   end
