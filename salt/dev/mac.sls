@@ -11,6 +11,11 @@ dev_mac_pkgs:
       - hugo
       - tcptunnel
       - terraform
+      - svgcleaner
+      - kubernetes-helm
+      # cli html parser
+      - pup
+      - pgcli
 
 dev_iterm2:
   cmd.run:

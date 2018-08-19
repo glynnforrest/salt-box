@@ -25,6 +25,7 @@ php_symfony_installer:
   #   - unless: which symfony
   cmd.run:
     - name: 'curl -L https://symfony.com/installer -o /tmp/symfony-installer'
+    - unless: which symfony
   file.managed:
     - name: /usr/local/bin/symfony
     # - source: /tmp/symfony-installer/symfony
